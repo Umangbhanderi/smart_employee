@@ -21,8 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         "12/07/2021"),
     Leaveconflicts(
         "Sahil Trambadiya", "address", "date", "12/07/2021", "12/07/2021"),
-         Leaveconflicts(
-        "Sahil Trambadiya", "address", "date", "12/07/2021", "12/07/2021"),
+        
   ];
   @override
   Widget build(BuildContext context) {
