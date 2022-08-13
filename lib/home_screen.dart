@@ -4,6 +4,7 @@ import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/drawer/employees.dart';
 import 'package:smart_employees/drawer/holidays.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
+import 'package:smart_employees/notification.dart';
 import 'package:smart_employees/theme/theme_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,30 +22,48 @@ class _HomeScreenState extends State<HomeScreen> {
         "12/07/2021"),
     Leaveconflicts(
         "Sahil Trambadiya", "address", "date", "12/07/2021", "12/07/2021"),
-        
   ];
   @override
   Widget build(BuildContext context) {
+    // bool status = themm;
     // bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Consumer(builder: (context, ThemeModel themeNotifire, child) {
+      bool status = themeNotifire.isDark
+          ? themeNotifire.isDark = true
+          : themeNotifire.isDark = false;
       return SafeArea(
         child: Scaffold(
           appBar: AppBar(
             actions: [
+              Switch(
+                  value: status,
+                  onChanged: (value) {
+                    setState(() {
+                      themeNotifire.isDark
+                          ? themeNotifire.isDark = false
+                          : themeNotifire.isDark = true;
+                    });
+                  }),
+              // IconButton(
+              //     onPressed: () {
+              //       themeNotifire.isDark
+              //           ? themeNotifire.isDark = false
+              //           : themeNotifire.isDark = true;
+              //     },
+              //     icon: Icon(
+              //       themeNotifire.isDark
+              //           ? Icons.wb_sunny
+              //           : Icons.nightlight_round,
+              //     )),
               IconButton(
                   onPressed: () {
-                    themeNotifire.isDark
-                        ? themeNotifire.isDark = false
-                        : themeNotifire.isDark = true;
+                    Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            Notificationbtn()));
                   },
                   icon: Icon(
-                    themeNotifire.isDark
-                        ? Icons.wb_sunny
-                        : Icons.nightlight_round,
-                  )),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
                     Icons.notifications,
                   )),
             ],

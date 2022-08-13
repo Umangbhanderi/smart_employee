@@ -13,6 +13,7 @@ import 'package:smart_employees/theme/theme_model.dart';
 import 'employees.dart';
 import 'holidays.dart';
 
+
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
@@ -21,9 +22,12 @@ class DrawerWidget extends StatefulWidget {
 }
 
 class _DrawerWidgetState extends State<DrawerWidget> {
+  // bool status = false;
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModel themeNotifire, child) {
+      bool status = themeNotifire.isDark? 
+      themeNotifire.isDark = true : themeNotifire.isDark = false;
       return Drawer(
           width: MediaQuery.of(context).size.width * 0.8,
           child: Column(children: [
@@ -44,32 +48,19 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ),
             ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
+            SwitchListTile(
+              secondary:const Icon(Icons.dark_mode_outlined),
+                value: status,
+                title:const Text(
                   "Dark Theme",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20),
                 ),
-                // InkWell(
-                //   onTap: () {
-                //     themeNotifire.isDark
-                //         ? themeNotifire.isDark = true
-                //         : themeNotifire.isDark = false;
-                //   },
-                //   child: 
-                  Switch(
-                      value: themeNotifire.isDark
-                          ? themeNotifire.isDark = true
-                          : themeNotifire.isDark = false,
-                      onChanged: (value) {
-                        themeNotifire.isDark
-                            ? themeNotifire.isDark = true
-                            : themeNotifire.isDark = false;
-                      }),
-                // ),
-              ],
-            ),
+                onChanged: (value) {
+                  setState(() {
+                    status = themeNotifire.isDark?
+                    status = true : status = false;
+                  });
+                }),
             ListTile(
               leading: const Icon(Icons.dashboard),
               title: InkWell(
