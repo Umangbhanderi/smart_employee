@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_employees/drawer/WorkFlow/workflow_list.dart';
 import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
@@ -13,21 +14,6 @@ class Workflow extends StatefulWidget {
 }
 
 class _WorkflowState extends State<Workflow> {
-  List<Workflowlist> workflowlist = [
-    Workflowlist("Off boarding"),
-    Workflowlist("On board"),
-    Workflowlist("Off boarding"),
-    Workflowlist("On board"),
-    Workflowlist("Off boarding"),
-    Workflowlist("On board"),
-    Workflowlist("Off boarding"),
-    Workflowlist("On board"),
-    Workflowlist("Off boarding"),
-    Workflowlist("On board"),
-    Workflowlist("Off boarding"),
-    Workflowlist("On board"),
-    Workflowlist("Off boarding"),
-  ];
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModel themeNotifire, child) {
@@ -39,14 +25,14 @@ class _WorkflowState extends State<Workflow> {
           title: Text(
             "WORKFLOW",
             style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 color: themeNotifire.isDark ? Colors.white : Colors.black,
                 fontWeight: FontWeight.bold),
           ),
           actions: const [Icon(Icons.notifications)],
           iconTheme: IconThemeData(
               color: themeNotifire.isDark ? Colors.white : Colors.black,
-              size: 40),
+              size: 30),
         ),
         drawer: const DrawerWidget(),
         body: Column(
@@ -64,13 +50,14 @@ class _WorkflowState extends State<Workflow> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
+                                scrollable: true,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                                 content: SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.6,
+                                      MediaQuery.of(context).size.height * 0.95,
                                   width:
-                                      MediaQuery.of(context).size.width * 0.9,
+                                      MediaQuery.of(context).size.width * 0.95,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -82,7 +69,7 @@ class _WorkflowState extends State<Workflow> {
                                           const Text(
                                             "ADD WORKFLOW",
                                             style: TextStyle(
-                                                fontSize: 25,
+                                                fontSize: 16,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           IconButton(
@@ -91,7 +78,7 @@ class _WorkflowState extends State<Workflow> {
                                               },
                                               icon: const Icon(
                                                 Icons.cancel,
-                                                size: 40,
+                                                size: 30,
                                               ))
                                         ],
                                       ),
@@ -101,13 +88,14 @@ class _WorkflowState extends State<Workflow> {
                                         child: Text(
                                           "Type*",
                                           style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: 14,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Title",
+                                          hintStyle:const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -125,13 +113,14 @@ class _WorkflowState extends State<Workflow> {
                                         child: Text(
                                           "Name*",
                                           style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: 14,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Name",
+                                          hintStyle:const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(
@@ -151,7 +140,7 @@ class _WorkflowState extends State<Workflow> {
                                         child: Text(
                                           "Perform By*",
                                           style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: 14,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
@@ -164,7 +153,7 @@ class _WorkflowState extends State<Workflow> {
                                             title: Text(
                                               "Select Perform By",
                                               style: TextStyle(
-                                                  fontSize: 20,
+                                                  fontSize: 14,
                                                   decorationColor:
                                                       Colors.black),
                                             ),
@@ -177,7 +166,7 @@ class _WorkflowState extends State<Workflow> {
                                         child: Text(
                                           "Days*",
                                           style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: 14,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
@@ -187,12 +176,12 @@ class _WorkflowState extends State<Workflow> {
                                               width: MediaQuery.of(context)
                                                       .size
                                                       .width *
-                                                  0.6,
+                                                  0.45,
                                               child: const Card(
                                                 child: ExpansionTile(
                                                   title: Text("Select Days",
                                                       style: TextStyle(
-                                                          fontSize: 20,
+                                                          fontSize: 14,
                                                           decorationColor:
                                                               Colors.black)),
                                                 ),
@@ -202,7 +191,7 @@ class _WorkflowState extends State<Workflow> {
                                             child: const Text(
                                               "Add",
                                               style: TextStyle(
-                                                  fontSize: 20,
+                                                  fontSize: 14,
                                                   color: Colors.black),
                                             ),
                                             style: ButtonStyle(
@@ -232,7 +221,7 @@ class _WorkflowState extends State<Workflow> {
                                               child: const Text(
                                                 "Submit",
                                                 style: TextStyle(
-                                                    fontSize: 20,
+                                                    fontSize: 14,
                                                     color: Colors.black),
                                               ),
                                               style: ButtonStyle(
@@ -263,7 +252,7 @@ class _WorkflowState extends State<Workflow> {
                       ),
                       label: const Text(
                         "Add New",
-                        style: TextStyle(fontSize: 20, color: Colors.black),
+                        style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                       style: ButtonStyle(
                           shape: MaterialStateProperty.all(
@@ -285,6 +274,7 @@ class _WorkflowState extends State<Workflow> {
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.search),
                     hintText: "Search for Leave Setup",
+                    hintStyle:const TextStyle(fontSize: 14),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     enabledBorder: OutlineInputBorder(
@@ -295,105 +285,7 @@ class _WorkflowState extends State<Workflow> {
                 ),
               ),
             ),
-            Expanded(
-                child: ListView.builder(
-                    itemCount: workflowlist.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 10, left: 10),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 15, bottom: 15, left: 5),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      workflowlist[index].name,
-                                      style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(top: 10),
-                                      child: Text(
-                                        "Created Date: 07 May 2021",
-                                        style: TextStyle(fontSize: 20),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-
-                                // IconButton(
-                                //     onPressed: () {
-
-                                // showCupertinoModalPopup(
-                                //     context: context,
-                                //     builder: (context) {
-                                //       return SizedBox(
-                                //         height: MediaQuery.of(context).size.height * 0.2,
-                                //         child: Row());
-                                //     });
-                                // showModalBottomSheet(context: context, builder: (context){
-                                //   return SizedBox(
-                                //     height: MediaQuery.of(context).size.height * 0.2,
-                                //     child: Row(
-
-                                //     ),
-                                //   );
-                                // });
-                                // },
-                                // icon: const Icon(
-                                //   Icons.more_vert_rounded,
-                                //   size: 30,
-                                // )),
-                                PopupMenuButton(
-                                    itemBuilder: (context) => [
-                                          PopupMenuItem(
-                                              value: 1,
-                                              child: Row(
-                                                children: const [
-                                                  Icon(Icons
-                                                      .remove_red_eye_sharp),
-                                                  Text(
-                                                    "View",
-                                                    style:
-                                                        TextStyle(fontSize: 20),
-                                                  )
-                                                ],
-                                              )),
-                                          PopupMenuItem(
-                                              value: 2,
-                                              child: Row(
-                                                children: const [
-                                                  Icon(Icons.edit),
-                                                  Text("Edit",
-                                                      style: TextStyle(
-                                                          fontSize: 20))
-                                                ],
-                                              )),
-                                          PopupMenuItem(
-                                              value: 3,
-                                              child: Row(
-                                                children: const [
-                                                  Icon(Icons.cancel),
-                                                  Text("Cancel",
-                                                      style: TextStyle(
-                                                          fontSize: 20))
-                                                ],
-                                              )),
-                                        ])
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    }))
+            const WorkFlowList()
           ],
         ),
       );

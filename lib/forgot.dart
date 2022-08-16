@@ -41,7 +41,7 @@ class _ForgotState extends State<Forgot> {
                         child: Text(
                       "FORGOT PASSWORD",
                       style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color: Colors.black),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),
                     )),
                   ),
                   Padding(
@@ -53,7 +53,7 @@ class _ForgotState extends State<Forgot> {
                           padding: EdgeInsets.only(top: 30.0, bottom: 10),
                           child: Text(
                             "Email ID",
-                            style: TextStyle(fontSize: 20,color: Colors.black),
+                            style: TextStyle(fontSize: 14,color: Colors.black),
                           ),
                         ),
                         TextFormField(
@@ -65,7 +65,7 @@ class _ForgotState extends State<Forgot> {
                                   borderRadius: BorderRadius.circular(20)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20)),
-                              hintText: "Enter email id",hintStyle: TextStyle(color: Colors.black)),
+                              hintText: "Enter email id",hintStyle: TextStyle(color: Colors.black,fontSize: 14)),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 30.0, bottom: 6),
@@ -80,7 +80,7 @@ class _ForgotState extends State<Forgot> {
                               },
                               child:const Text(
                                 "SUBMIT",
-                                style: TextStyle(fontSize: 20,color: Colors.black),
+                                style: TextStyle(fontSize: 16,color: Colors.black),
                               ),
                               style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all(
@@ -100,7 +100,7 @@ class _ForgotState extends State<Forgot> {
                               },
                               child:const Text(
                                 "Login?",
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(fontSize: 16),
                               )),
                         )
                       ],
