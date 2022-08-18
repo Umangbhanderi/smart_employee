@@ -84,6 +84,7 @@ class _HolidaysState extends State<Holidays> {
                                 context: context,
                                 builder: (context) {
                                   return AlertDialog(
+                                    scrollable: true,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),

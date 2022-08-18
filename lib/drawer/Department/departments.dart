@@ -77,6 +77,7 @@ class _DepartmentsState extends State<Departments> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
+                              scrollable: true,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20)),
                               content: SizedBox(

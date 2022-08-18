@@ -74,6 +74,7 @@ class _ShiftsState extends State<Shifts> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
+                              scrollable: true,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),

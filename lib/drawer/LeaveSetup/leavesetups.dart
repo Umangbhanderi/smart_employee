@@ -70,6 +70,7 @@ class _LeavesetupsState extends State<Leavesetups> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
+                                scrollable: true,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),

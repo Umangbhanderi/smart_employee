@@ -91,6 +91,7 @@ class _DesignationsState extends State<Designations> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
+                              scrollable: true,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                                 content: SizedBox(
