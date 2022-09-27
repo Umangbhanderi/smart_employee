@@ -3,7 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:smart_employees/splash.dart';
 import 'package:smart_employees/theme/theme_model.dart';
 
+import 'login.dart';
+
 void main() {
+  // FlutterNativeSplash.removeAfter();
   runApp(const MyApp());
 }
 
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return ChangeNotifierProvider(  
       create: (_) => ThemeModel(),
       child: Consumer(
         builder: (context, ThemeModel themeNotifire, child) {
@@ -21,7 +24,8 @@ class MyApp extends StatelessWidget {
             // theme: ThemeData(brightness: Brightness.light),
             // darkTheme: ThemeData(brightness: Brightness.dark),
             // themeMode: ThemeMode.dark,
-            home: const Splash(),
+            // home: const Splash(),
+            home:const Login(),
             debugShowCheckedModeBanner: false,
           );
         },

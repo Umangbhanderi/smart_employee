@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "878426993450",
+    "project_id": "smartemployee-2d669",
+    "storage_bucket": "smartemployee-2d669.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878426993450:android:e9b1252a5c2cb14efd2453",
+        "android_client_info": {
+          "package_name": "com.example.smart_employees"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878426993450-g1t9nubogm4vojf438a9h9g6rmibnb6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaH6Yscmt_1TH4LklLZp7wqw7RhTyda20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878426993450-g1t9nubogm4vojf438a9h9g6rmibnb6p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
