@@ -8,6 +8,8 @@ import 'package:smart_employees/drawer/Employee/employees.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
 
+import '../../notification.dart';
+
 class Holidays extends StatefulWidget {
   const Holidays({Key? key}) : super(key: key);
 
@@ -31,7 +33,17 @@ class _HolidaysState extends State<Holidays> {
                   fontWeight: FontWeight.bold,
                   color: themeNotifire.isDark ? Colors.white : Colors.black),
             ),
-            actions: const [Icon(Icons.notifications)],
+            // actions: const [Icon(Icons.notifications)],
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Notificationbtn()));
+                  },
+                  icon: Icon(Icons.notifications))
+            ],
             backgroundColor: Colors.transparent,
             elevation: 0.0,
             iconTheme: IconThemeData(

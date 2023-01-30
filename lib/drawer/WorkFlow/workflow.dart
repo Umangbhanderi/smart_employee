@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smart_employees/drawer/WorkFlow/workflow_list.dart';
 import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
+import 'package:smart_employees/notification.dart';
 import 'package:smart_employees/theme/theme_model.dart';
 
 class Workflow extends StatefulWidget {
@@ -29,7 +30,17 @@ class _WorkflowState extends State<Workflow> {
                 color: themeNotifire.isDark ? Colors.white : Colors.black,
                 fontWeight: FontWeight.bold),
           ),
-          actions: const [Icon(Icons.notifications)],
+          // actions: const [Icon(Icons.notifications)],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Notificationbtn()));
+                },
+                icon: Icon(Icons.notifications))
+          ],
           iconTheme: IconThemeData(
               color: themeNotifire.isDark ? Colors.white : Colors.black,
               size: 30),
@@ -95,7 +106,8 @@ class _WorkflowState extends State<Workflow> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Title",
-                                          hintStyle:const TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -120,7 +132,8 @@ class _WorkflowState extends State<Workflow> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Name",
-                                          hintStyle:const TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(
@@ -274,7 +287,7 @@ class _WorkflowState extends State<Workflow> {
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.search),
                     hintText: "Search for Leave Setup",
-                    hintStyle:const TextStyle(fontSize: 14),
+                    hintStyle: const TextStyle(fontSize: 14),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     enabledBorder: OutlineInputBorder(

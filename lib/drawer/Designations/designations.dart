@@ -6,6 +6,8 @@ import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
 
+import '../../notification.dart';
+
 class Designations extends StatefulWidget {
   const Designations({Key? key}) : super(key: key);
 
@@ -27,12 +29,20 @@ class _DesignationsState extends State<Designations> {
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: themeNotifire.isDark ? 
-                Colors.white :
-                 Colors.black),
+                color: themeNotifire.isDark ? Colors.white : Colors.black),
           ),
-          actions: const [
-            Icon(Icons.notifications),
+          // actions: const [
+          //   Icon(Icons.notifications),
+          // ],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Notificationbtn()));
+                },
+                icon: Icon(Icons.notifications))
           ],
           iconTheme: IconThemeData(
               color: themeNotifire.isDark ? Colors.white : Colors.black,
@@ -91,7 +101,7 @@ class _DesignationsState extends State<Designations> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              scrollable: true,
+                                scrollable: true,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                                 content: SizedBox(
@@ -136,7 +146,8 @@ class _DesignationsState extends State<Designations> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Department",
-                                          hintStyle: TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -161,7 +172,8 @@ class _DesignationsState extends State<Designations> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Designation",
-                                          hintStyle: TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -186,20 +198,20 @@ class _DesignationsState extends State<Designations> {
                                               },
                                               child: const Text(
                                                 "Submit",
-                                                style:
-                                                    TextStyle(fontSize: 16),
+                                                style: TextStyle(fontSize: 16),
                                               ),
                                               style: ButtonStyle(
                                                   backgroundColor:
-                                                      MaterialStateProperty
-                                                          .all(const Color(
+                                                      MaterialStateProperty.all(
+                                                          const Color(
                                                               0xffFABF3F)),
-                                                  shape: MaterialStateProperty
-                                                      .all(RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20)))),
+                                                  shape:
+                                                      MaterialStateProperty.all(
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20)))),
                                             ),
                                           ],
                                         ),
@@ -236,7 +248,7 @@ class _DesignationsState extends State<Designations> {
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.search),
                     hintText: "Search for Designations",
-                    hintStyle:const TextStyle(fontSize: 14),
+                    hintStyle: const TextStyle(fontSize: 14),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     focusedBorder: OutlineInputBorder(
@@ -245,10 +257,9 @@ class _DesignationsState extends State<Designations> {
                         borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
-
               ]),
             ),
-           const DesignationList()
+            const DesignationList()
           ],
         ),
       );

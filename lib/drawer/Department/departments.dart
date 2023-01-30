@@ -1,12 +1,14 @@
-import 'dart:ui';
+// import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_employees/drawer/Department/department_list.dart';
 import 'package:smart_employees/drawer/drawer.dart';
 // import 'package:smart_employees/lists/departmentslist.dart';
-import 'package:smart_employees/lists/leaverequestlist.dart';
+// import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
+
+import '../../notification.dart';
 
 class Departments extends StatefulWidget {
   const Departments({Key? key}) : super(key: key);
@@ -31,7 +33,17 @@ class _DepartmentsState extends State<Departments> {
                 fontWeight: FontWeight.bold,
                 color: themeNotifire.isDark ? Colors.white : Colors.black),
           ),
-          actions: const [Icon(Icons.notifications)],
+          // actions: const [Icon(Icons.notifications)],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Notificationbtn()));
+                },
+                icon: Icon(Icons.notifications))
+          ],
           iconTheme: IconThemeData(
               color: themeNotifire.isDark ? Colors.white : Colors.black,
               size: 30),
@@ -90,7 +102,8 @@ class _DepartmentsState extends State<Departments> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           const Text(
                                             "ADD DEPARTMENT",
@@ -120,7 +133,8 @@ class _DepartmentsState extends State<Departments> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Department",
-                                          hintStyle:const TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -143,7 +157,8 @@ class _DepartmentsState extends State<Departments> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Code",
-                                          hintStyle:const TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -199,7 +214,7 @@ class _DepartmentsState extends State<Departments> {
                       Icons.add_circle_outline_rounded,
                       color: Colors.black,
                     ),
-                    label:const Text(
+                    label: const Text(
                       "Add Department",
                       style: TextStyle(fontSize: 14, color: Colors.black),
                     ),
@@ -230,13 +245,13 @@ class _DepartmentsState extends State<Departments> {
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     hintText: "Search for Departments",
-                    hintStyle:const TextStyle(fontSize: 14),
+                    hintStyle: const TextStyle(fontSize: 14),
                     prefixIcon: const Icon(Icons.search),
                   ),
                 ),
               ),
             ),
-            DepartmentList()
+            const DepartmentList()
           ],
         ),
       );

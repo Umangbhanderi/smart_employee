@@ -5,6 +5,8 @@ import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
 
+import '../../notification.dart';
+
 class Employees extends StatefulWidget {
   const Employees({Key? key}) : super(key: key);
 
@@ -26,7 +28,17 @@ class _EmployeesState extends State<Employees> {
             iconTheme: IconThemeData(
                 color: themeNotifire.isDark ? Colors.white : Colors.black,
                 size: 30),
-            actions: const [Icon(Icons.notifications)],
+            // actions: const [Icon(Icons.notifications)],
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Notificationbtn()));
+                  },
+                  icon: Icon(Icons.notifications))
+            ],
             title: Text("EMPLOYEE & MANAGERS",
                 style: TextStyle(
                   fontSize: 20,
@@ -42,17 +54,16 @@ class _EmployeesState extends State<Employees> {
                     top: 20, bottom: 15, left: 15, right: 15),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    prefixIcon: const Icon(Icons.search),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    hintText: "Search for Employee",
-                    hintStyle: TextStyle(fontSize: 14)
-                  ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      prefixIcon: const Icon(Icons.search),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      hintText: "Search for Employee",
+                      hintStyle: const TextStyle(fontSize: 14)),
                 ),
               ),
               Padding(
@@ -140,7 +151,7 @@ class _EmployeesState extends State<Employees> {
                   ],
                 ),
               ),
-             const EmployeeList()
+              const EmployeeList()
             ],
           ),
         ),

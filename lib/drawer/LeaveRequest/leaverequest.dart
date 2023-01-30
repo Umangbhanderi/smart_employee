@@ -5,6 +5,8 @@ import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
 
+import '../../notification.dart';
+
 class Leaverequest extends StatefulWidget {
   const Leaverequest({Key? key}) : super(key: key);
 
@@ -32,7 +34,17 @@ class _LeaverequestState extends State<Leaverequest> {
             iconTheme: IconThemeData(
                 color: themeNotifire.isDark ? Colors.white : Colors.black,
                 size: 30),
-            actions: const [Icon(Icons.notifications)],
+            // actions: const [Icon(Icons.notifications)],
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Notificationbtn()));
+                  },
+                  icon: Icon(Icons.notifications))
+            ],
           ),
           drawer: const DrawerWidget(),
           body: Column(
@@ -155,7 +167,9 @@ class _LeaverequestState extends State<Leaverequest> {
                                                       decoration:
                                                           InputDecoration(
                                                         hintText: "mm/dd/yyyy",
-                                                        hintStyle:const TextStyle(fontSize: 14),
+                                                        hintStyle:
+                                                            const TextStyle(
+                                                                fontSize: 14),
                                                         border: OutlineInputBorder(
                                                             borderRadius:
                                                                 BorderRadius
@@ -204,7 +218,9 @@ class _LeaverequestState extends State<Leaverequest> {
                                                   child: TextFormField(
                                                     decoration: InputDecoration(
                                                         hintText: "mm/dd/yyyy",
-                                                        hintStyle:const TextStyle(fontSize: 14),
+                                                        hintStyle:
+                                                            const TextStyle(
+                                                                fontSize: 14),
                                                         border: OutlineInputBorder(
                                                             borderRadius:
                                                                 BorderRadius
@@ -242,7 +258,8 @@ class _LeaverequestState extends State<Leaverequest> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "day",
-                                          hintStyle:const TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -267,7 +284,8 @@ class _LeaverequestState extends State<Leaverequest> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           hintText: "Reason",
-                                          hintStyle:const TextStyle(fontSize: 14),
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)),
@@ -370,7 +388,7 @@ class _LeaverequestState extends State<Leaverequest> {
                     decoration: InputDecoration(
                       // contentPadding: const EdgeInsets.symmetric(vertical: 80.0),
                       hintText: "Search for Leave Setup",
-                      hintStyle:const TextStyle(fontSize: 14),
+                      hintStyle: const TextStyle(fontSize: 14),
                       prefixIcon: const Icon(Icons.search),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),

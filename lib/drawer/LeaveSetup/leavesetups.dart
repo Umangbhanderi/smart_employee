@@ -4,6 +4,8 @@ import 'package:smart_employees/drawer/LeaveSetup/leavesetup_list.dart';
 import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
+
+import '../../notification.dart';
 // import 'package:smart_employees/lists/leavesetuplist.dart';
 
 class Leavesetups extends StatefulWidget {
@@ -29,8 +31,18 @@ class _LeavesetupsState extends State<Leavesetups> {
           ),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          actions: const [
-            Icon(Icons.notifications),
+          // actions: const [
+          //   Icon(Icons.notifications),
+          // ],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Notificationbtn()));
+                },
+                icon: Icon(Icons.notifications))
           ],
           iconTheme: IconThemeData(
               color: themeNotifire.isDark ? Colors.white : Colors.black,

@@ -4,6 +4,8 @@ import 'package:smart_employees/drawer/Leavetype/leavetype_list.dart';
 import 'package:smart_employees/drawer/drawer.dart';
 import 'package:smart_employees/lists/leaverequestlist.dart';
 import 'package:smart_employees/theme/theme_model.dart';
+
+import '../../notification.dart';
 // import 'package:smart_employees/lists/leavetypelist.dart';
 
 class Leavetypes extends StatefulWidget {
@@ -23,18 +25,28 @@ class _LeavetypesState extends State<Leavetypes> {
             backgroundColor: Colors.transparent,
             elevation: 0.0,
             centerTitle: true,
-            actions: const [
-              Icon(Icons.notifications),
+            // actions: const [
+            //   Icon(Icons.notifications),
+            // ],
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Notificationbtn()));
+                  },
+                  icon: Icon(Icons.notifications))
             ],
             iconTheme: IconThemeData(
                 color: themeNotifire.isDark ? Colors.white : Colors.black,
                 size: 30),
-            title:  Text(
+            title: Text(
               "LEAVE TYPES",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: themeNotifire.isDark? Colors.white : Colors.black),
+                  color: themeNotifire.isDark ? Colors.white : Colors.black),
             ),
           ),
           drawer: const DrawerWidget(),
@@ -84,7 +96,7 @@ class _LeavetypesState extends State<Leavetypes> {
                   ),
                 ),
               ),
-             const LeaveTypeList()
+              const LeaveTypeList()
             ],
           ),
         ),
